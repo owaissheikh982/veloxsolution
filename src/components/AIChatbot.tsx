@@ -89,7 +89,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
         content: m.content
       }));
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chat`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: serverHistory }),
@@ -131,7 +131,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
     }
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/leads`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

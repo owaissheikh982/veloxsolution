@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { motion } from "motion/react";
 import { 
   Terminal, 
@@ -107,25 +106,27 @@ export default function ContactPage() {
       // Create detailed system spec outline based on planner selections
       const systemSpecification = `Interactive Planner Config: Services: [${selectedServices.join(", ")}]. Estimated Node Complexity: ${agentsCount} agents. Dynamically estimated baseline cost: $${estCost.toLocaleString()} (Timeline: ${estTimeline}). User outline: ${message}`;
 
-      const formData = {
-        name,
-        email,
-        company,
-        service: selectedServices[0] || "Custom Architecture",
-        budget: budgetTier,
-        message: systemSpecification
-      };
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/leads`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          service: selectedServices[0] || "Custom Architecture",
+          budget: budgetTier,
+          message: systemSpecification
+        })
+      });
 
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/leads`, formData);
-
-      if (res.status === 200 || res.status === 201) {
+      if (res.ok) {
         setFormSuccess(true);
         setName("");
         setEmail("");
         setCompany("");
         setMessage("");
       } else {
-        const data = res.data;
+        const data = await res.json();
         setFormError(data.error || "A system level failure was reported from the database.");
       }
     } catch (err) {

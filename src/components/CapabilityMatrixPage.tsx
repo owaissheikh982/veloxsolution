@@ -27,8 +27,8 @@ export default function CapabilityMatrixPage() {
     try {
       setRefreshing(true);
       const [infraRes, leadsRes] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/infrastructure`),
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/leads`)
+        fetch(`${import.meta.env.VITE_API_URL || ""}/api/infrastructure`),
+        fetch(`${import.meta.env.VITE_API_URL || ""}/api/leads`)
       ]);
 
       if (infraRes.ok) {

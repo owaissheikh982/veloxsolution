@@ -1,6 +1,8 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import dotenv from "dotenv";
+import cors from "cors";
 import { GoogleGenAI } from "@google/genai";
 import { createServer as createViteServer } from "vite";
 
@@ -8,7 +10,11 @@ import { createServer as createViteServer } from "vite";
 dotenv.config();
 
 const app = express();
-const PORT = 3002;
+const PORT = parseInt(process.env.PORT || "3002", 10);
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "*"
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -196,7 +202,7 @@ Keep responses structured, concise, and beautifully styled with Markdown. Bullet
 
 // Helper to send new leads to the Discord channel webhook gracefully
 async function sendDiscordWebhook(lead: Lead) {
-  const webhookUrl = process.env.DISCORD_WEBHOOK_URL || "https://discord.com/api/webhooks/1525275139682336841/Ssl0GgHW3iAOfh5uYX-A5rreeTty13JX1QgtOMKYvpKCnJeSRUYAHVw82U7Ee6FtDjCO";
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
   if (!webhookUrl) {
     console.warn("[DISCORD WEBHOOK] No webhook URL configured.");
@@ -374,10 +380,17 @@ async function startServer() {
   } else {
     console.log("Starting server in production mode...");
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
+    if (fs.existsSync(distPath)) {
+      app.use(express.static(distPath));
+      app.get('*', (req, res) => {
+        res.sendFile(path.join(distPath, 'index.html'));
+      });
+    } else {
+      console.log("No frontend build found at 'dist'. Serving API only.");
+      app.get('/', (req, res) => {
+        res.json({ message: "Velox Solutions API is running." });
+      });
+    }
   }
 
   app.listen(PORT, "0.0.0.0", () => {
