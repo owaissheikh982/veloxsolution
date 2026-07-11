@@ -14,6 +14,9 @@ import {
   FolderDot
 } from "lucide-react";
 
+// Railway backend URL — must be set as VITE_API_URL in Vercel environment variables
+const API_BASE = import.meta.env.VITE_API_URL || "https://veloxsolutionbackend-production.up.railway.app";
+
 interface AIChatbotProps {
   isOpen: boolean;
   onClose: () => void;
@@ -89,7 +92,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
         content: m.content
       }));
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/chat`, {
+      const res = await fetch(`${API_BASE}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: serverHistory }),
@@ -131,7 +134,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
     }
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/leads`, {
+      const res = await fetch(`${API_BASE}/api/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

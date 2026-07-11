@@ -13,6 +13,7 @@ import {
   Activity,
   Globe
 } from "lucide-react";
+import botHeroImage from "../assets/images/female_ai_robot_1783722421096.jpg";
 
 interface LandingPageProps {
   setCurrentPage: (page: Page) => void;
@@ -44,9 +45,8 @@ export default function LandingPage({ setCurrentPage, toggleChat }: LandingPageP
       {/* Cybernetic Robot Portrait Background Overlay */}
       <div className="absolute top-0 left-0 right-0 h-[680px] overflow-hidden pointer-events-none z-0">
         <img 
-          src="/src/assets/images/female_ai_robot_1783722421096.jpg" 
+          src={botHeroImage} 
           alt="Velox AI Background" 
-          referrerPolicy="no-referrer"
           decoding="async"
           className="w-full h-full object-cover opacity-20 object-center lg:object-[center_15%] filter contrast-125 brightness-90 saturate-50"
         />
