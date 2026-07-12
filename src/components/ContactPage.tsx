@@ -106,7 +106,8 @@ export default function ContactPage() {
       // Create detailed system spec outline based on planner selections
       const systemSpecification = `Interactive Planner Config: Services: [${selectedServices.join(", ")}]. Estimated Node Complexity: ${agentsCount} agents. Dynamically estimated baseline cost: $${estCost.toLocaleString()} (Timeline: ${estTimeline}). User outline: ${message}`;
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL || "https://veloxsolutionbackend-production.up.railway.app"}/api/leads`, {
+      const apiBase = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:3002" : "https://veloxsolutionbackend-production.up.railway.app");
+      const res = await fetch(`${apiBase}/api/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

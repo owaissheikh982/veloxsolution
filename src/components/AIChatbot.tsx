@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 // Railway backend URL — must be set as VITE_API_URL in Vercel environment variables
-const API_BASE = import.meta.env.VITE_API_URL || "https://veloxsolutionbackend-production.up.railway.app";
+const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:3002" : "https://veloxsolutionbackend-production.up.railway.app");
 
 interface AIChatbotProps {
   isOpen: boolean;
