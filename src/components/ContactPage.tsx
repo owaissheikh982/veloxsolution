@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { 
-  Terminal, 
-  Send, 
-  CheckCircle, 
-  AlertCircle, 
-  Cpu, 
-  ShieldCheck, 
+import {
+  Terminal,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  Cpu,
+  ShieldCheck,
   HelpCircle,
   TrendingUp,
   Sliders,
@@ -20,7 +20,7 @@ export default function ContactPage() {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
-  
+
   // Interactive Project Planner state
   const [agentsCount, setAgentsCount] = useState<number>(3);
   const [selectedServices, setSelectedServices] = useState<string[]>([
@@ -106,7 +106,7 @@ export default function ContactPage() {
       // Create detailed system spec outline based on planner selections
       const systemSpecification = `Interactive Planner Config: Services: [${selectedServices.join(", ")}]. Estimated Node Complexity: ${agentsCount} agents. Dynamically estimated baseline cost: $${estCost.toLocaleString()} (Timeline: ${estTimeline}). User outline: ${message}`;
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/leads`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "https://veloxsolutionbackend-production.up.railway.app"}/api/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -153,7 +153,7 @@ export default function ContactPage() {
 
         {/* Two-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Left Column: secure contact credentials & values */}
           <div className="lg:col-span-5 space-y-6 text-left">
             <div className="bg-cyber-dark/40 border border-gray-800 rounded-2xl p-6 sm:p-8 space-y-6">
@@ -198,7 +198,7 @@ export default function ContactPage() {
                 <Sliders className="h-4 w-4" />
                 <span>DYNAMIC ARCHITECTURE ESTIMATOR</span>
               </h4>
-              
+
               <div className="grid grid-cols-2 gap-4 pt-2 font-mono">
                 <div className="bg-gray-950/40 p-4 rounded-xl border border-gray-900">
                   <span className="text-[9px] text-gray-500 block mb-1 uppercase">ESTIMATED COST</span>
@@ -225,7 +225,7 @@ export default function ContactPage() {
             <h3 className="font-display font-bold text-lg text-white mb-6">Bespoke Project Planner</h3>
 
             <form onSubmit={handleFormSubmit} className="space-y-6">
-              
+
               {/* Service Selection */}
               <div>
                 <label className="block font-mono text-[9px] text-gray-400 mb-2 uppercase">SELECT CORE ARCHITECTURE TARGETS *</label>
@@ -236,15 +236,13 @@ export default function ContactPage() {
                       <div
                         key={idx}
                         onClick={() => handleServiceToggle(service.name)}
-                        className={`p-3.5 rounded-lg border cursor-pointer transition-all flex items-start space-x-3 text-xs ${
-                          isSelected
+                        className={`p-3.5 rounded-lg border cursor-pointer transition-all flex items-start space-x-3 text-xs ${isSelected
                             ? "bg-sky-500/5 border-sky-400 text-white"
                             : "bg-gray-950/40 border-gray-800 text-gray-400 hover:border-gray-700 hover:text-gray-200"
-                        }`}
+                          }`}
                       >
-                        <div className={`mt-0.5 h-3.5 w-3.5 rounded-sm border flex items-center justify-center flex-shrink-0 ${
-                          isSelected ? "border-sky-400 bg-sky-400/20" : "border-gray-700"
-                        }`}>
+                        <div className={`mt-0.5 h-3.5 w-3.5 rounded-sm border flex items-center justify-center flex-shrink-0 ${isSelected ? "border-sky-400 bg-sky-400/20" : "border-gray-700"
+                          }`}>
                           {isSelected && <div className="h-1.5 w-1.5 rounded-sm bg-sky-400" />}
                         </div>
                         <div>
@@ -266,7 +264,7 @@ export default function ContactPage() {
                     <span>TARGET NODE COMPLEXITY</span>
                     <span className="text-sky-400 font-bold">{agentsCount} COORDINATED AGENTS</span>
                   </div>
-                  <input 
+                  <input
                     type="range"
                     min={2}
                     max={12}
@@ -284,11 +282,11 @@ export default function ContactPage() {
               {/* Corporate details fields */}
               <div className="border-t border-gray-800/60 pt-6 space-y-4">
                 <span className="block font-mono text-[9px] text-gray-400 uppercase mb-2">Corporate Identity Parameters</span>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block font-mono text-[9px] text-gray-400 mb-1">YOUR FULL NAME *</label>
-                    <input 
+                    <input
                       type="text"
                       required
                       value={name}
@@ -299,7 +297,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="block font-mono text-[9px] text-gray-400 mb-1">COMPANY / ENTITY *</label>
-                    <input 
+                    <input
                       type="text"
                       required
                       value={company}
@@ -312,7 +310,7 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block font-mono text-[9px] text-gray-400 mb-1">CORPORATE EMAIL ADDR *</label>
-                  <input 
+                  <input
                     type="email"
                     required
                     value={email}
@@ -324,7 +322,7 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block font-mono text-[9px] text-gray-400 mb-1">PROJECT DETAILS / REQUIREMENTS OUTLINE</label>
-                  <textarea 
+                  <textarea
                     rows={4}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
