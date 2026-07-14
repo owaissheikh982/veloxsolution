@@ -146,7 +146,7 @@ export default function CareersPage() {
         <div className="flex border-b border-gray-900 mb-12">
           <button
             onClick={() => setActiveTab("carbon")}
-            className={`flex-1 pb-4 text-center border-b-2 text-xs font-mono tracking-wider transition-all cursor-pointer ${
+            className={`flex-1 pb-4 text-center border-b-2 text-[10px] sm:text-xs font-mono tracking-wider transition-all cursor-pointer ${
               activeTab === "carbon"
                 ? "border-sky-500 text-sky-400 font-bold"
                 : "border-transparent text-gray-500 hover:text-gray-300"
@@ -156,7 +156,7 @@ export default function CareersPage() {
           </button>
           <button
             onClick={() => setActiveTab("silicon")}
-            className={`flex-1 pb-4 text-center border-b-2 text-xs font-mono tracking-wider transition-all cursor-pointer ${
+            className={`flex-1 pb-4 text-center border-b-2 text-[10px] sm:text-xs font-mono tracking-wider transition-all cursor-pointer ${
               activeTab === "silicon"
                 ? "border-sky-500 text-sky-400 font-bold"
                 : "border-transparent text-gray-500 hover:text-gray-300"
@@ -292,7 +292,7 @@ export default function CareersPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-cyber-dark border border-gray-800 rounded-2xl w-full max-w-md max-h-[90vh] flex flex-col p-6 relative overflow-hidden"
+              className="bg-cyber-dark border border-gray-800 rounded-2xl w-full max-w-md max-h-[90vh] flex flex-col p-4 sm:p-6 relative overflow-hidden"
             >
               <div className="flex items-center justify-between border-b border-gray-800 pb-4 mb-6 flex-shrink-0">
                 <div>

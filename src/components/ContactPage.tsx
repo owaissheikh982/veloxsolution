@@ -157,7 +157,7 @@ export default function ContactPage() {
 
           {/* Left Column: secure contact credentials & values */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <div className="bg-cyber-dark/40 border border-gray-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <div className="bg-cyber-dark/40 border border-gray-800 rounded-2xl p-4 sm:p-8 space-y-6">
               <div>
                 <span className="font-mono text-[9px] text-sky-400 uppercase tracking-wider block mb-1">SYSTEMS COMMUNICATOR</span>
                 <h3 className="font-display font-bold text-xl text-white">Velox Communication Node</h3>
@@ -194,7 +194,7 @@ export default function ContactPage() {
             </div>
 
             {/* Quote details breakdown display */}
-            <div className="bg-sky-500/5 border border-sky-500/20 rounded-2xl p-6 sm:p-8 space-y-4">
+            <div className="bg-sky-500/5 border border-sky-500/20 rounded-2xl p-4 sm:p-8 space-y-4">
               <h4 className="font-mono text-[10px] text-sky-400 uppercase tracking-widest flex items-center space-x-2">
                 <Sliders className="h-4 w-4" />
                 <span>DYNAMIC ARCHITECTURE ESTIMATOR</span>
@@ -222,7 +222,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Interactive Proposal Form & Project Planner */}
-          <div className="lg:col-span-7 bg-cyber-dark/40 border border-gray-800 rounded-2xl p-6 sm:p-8 text-left">
+          <div className="lg:col-span-7 bg-cyber-dark/40 border border-gray-800 rounded-2xl p-4 sm:p-8 text-left">
             <h3 className="font-display font-bold text-lg text-white mb-6">Bespoke Project Planner</h3>
 
             <form onSubmit={handleFormSubmit} className="space-y-6">

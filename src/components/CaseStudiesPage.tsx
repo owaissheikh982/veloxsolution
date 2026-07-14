@@ -251,7 +251,7 @@ export default function CaseStudiesPage() {
           <div className="lg:col-span-7 space-y-8">
             
             {/* Case Details */}
-            <div className="bg-cyber-dark/40 border border-gray-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+            <div className="bg-cyber-dark/40 border border-gray-800 rounded-2xl p-4 sm:p-8 relative overflow-hidden">
               <span className="font-mono text-[10px] text-sky-400 uppercase tracking-widest block mb-1">DETAILED ANALYSIS</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">
                 {caseStudies[selectedCase].title}
@@ -340,7 +340,7 @@ export default function CaseStudiesPage() {
               <div className="grid grid-cols-4 gap-4 mb-6">
                 {simulationSteps.map((step, idx) => (
                   <div key={idx} className="relative">
-                    <div className="flex items-center justify-between text-[10px] font-mono mb-1 text-gray-500">
+                    <div className="flex items-center justify-between text-[8px] sm:text-[10px] font-mono mb-1 text-gray-500">
                       <span>STEP 0{idx + 1}</span>
                     </div>
                     <div className={`h-1.5 w-full rounded-full overflow-hidden ${
@@ -354,7 +354,7 @@ export default function CaseStudiesPage() {
                             : "w-0 bg-transparent"
                       }`} />
                     </div>
-                    <span className={`block font-display font-medium text-[10px] mt-1.5 text-center truncate ${
+                    <span className={`block font-display font-medium text-[8px] sm:text-[10px] mt-1.5 text-center truncate ${
                       step.status === "completed" ? "text-emerald-400" : step.status === "running" ? "text-sky-400" : "text-gray-500"
                     }`}>
                       {step.name}

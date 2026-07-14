@@ -149,7 +149,7 @@ export default function CapabilityMatrixPage() {
 
               {/* Hardware Utilization Card */}
               <motion.div 
-                className="bg-cyber-dark/40 border border-gray-800 hover:border-sky-400/30 transition-colors duration-200 rounded-xl p-6 relative overflow-hidden"
+                className="bg-cyber-dark/40 border border-gray-800 hover:border-sky-400/30 transition-colors duration-200 rounded-xl p-4 sm:p-6 relative overflow-hidden"
               >
                 <span className="font-mono text-xs text-sky-400 uppercase tracking-widest block mb-6">CLUSTER DIAGNOSTICS</span>
                 
@@ -245,7 +245,7 @@ export default function CapabilityMatrixPage() {
             {/* Right Column - Client Lead Specification Board (4 Cols) */}
             <div className="lg:col-span-4 flex flex-col space-y-6">
               
-              <div className="bg-cyber-dark/60 border border-gray-800 rounded-xl p-6 flex-1 flex flex-col justify-between">
+              <div className="bg-cyber-dark/60 border border-gray-800 rounded-xl p-4 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-800/60">
                     <span className="font-mono text-xs text-sky-400 uppercase tracking-widest">VELOX CRM STATUS</span>

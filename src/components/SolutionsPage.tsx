@@ -107,7 +107,7 @@ export default function SolutionsPage() {
               </div>
             </div>
 
-            <div className="bg-cyber-dark/60 border border-gray-800 p-6 rounded-xl flex flex-col justify-between h-full">
+            <div className="bg-cyber-dark/60 border border-gray-800 p-4 sm:p-6 rounded-xl flex flex-col justify-between h-full">
               <div>
                 <span className="font-mono text-[10px] text-sky-500">SPECIFICATIONS</span>
                 <h4 className="font-display font-bold text-white text-base mt-1">Deploy Options</h4>
@@ -122,7 +122,7 @@ export default function SolutionsPage() {
           </div>
 
           {/* Interactive Dynamic Blueprint Chart */}
-          <div className="lg:col-span-8 bg-cyber-dark/40 border border-gray-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between min-h-[420px] group/blueprint">
+          <div className="lg:col-span-8 bg-cyber-dark/40 border border-gray-800 rounded-2xl p-4 sm:p-8 relative overflow-hidden flex flex-col justify-between min-h-[420px] group/blueprint">
             <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-purple-500/5 opacity-0 group-hover/blueprint:opacity-100 transition-opacity duration-700 pointer-events-none" />
             <div className="absolute top-0 right-0 p-4 font-mono text-[9px] text-gray-500 z-10">
               BUILD // VELOX_ENGINE_v4

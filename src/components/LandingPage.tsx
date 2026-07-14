@@ -115,7 +115,7 @@ export default function LandingPage({ setCurrentPage, toggleChat }: LandingPageP
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-20 lg:mt-24 glow-card p-8 border border-gray-800/80 rounded-2xl bg-cyber-dark/40 overflow-hidden scanner-container relative group"
+          className="mt-20 lg:mt-24 glow-card p-4 sm:p-8 border border-gray-800/80 rounded-2xl bg-cyber-dark/40 overflow-hidden scanner-container relative group"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-sky-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="scanner-line" />
@@ -254,7 +254,7 @@ export default function LandingPage({ setCurrentPage, toggleChat }: LandingPageP
         </div>
 
         {/* Editorial Editorial Statement */}
-        <div className="mt-28 border-t border-b border-gray-800 py-16 px-8 bg-cyber-dark/20 rounded-2xl relative overflow-hidden group">
+        <div className="mt-28 border-t border-b border-gray-800 py-10 px-4 sm:py-16 sm:px-8 bg-cyber-dark/20 rounded-2xl relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-r from-sky-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
           <div className="absolute inset-0 grid-bg-fine pointer-events-none opacity-40" />
           <div className="relative max-w-4xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">

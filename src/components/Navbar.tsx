@@ -44,15 +44,15 @@ export default function Navbar({ currentPage, setCurrentPage, toggleChat, isChat
         
         {/* Logo Section */}
         <div 
-          className="flex items-center space-x-2 cursor-pointer flex-shrink-0" 
+          className="flex items-center space-x-1.5 sm:space-x-2 cursor-pointer flex-shrink-0" 
           onClick={() => handleNavClick(Page.LANDING)}
         >
-          <VeloxLogoIcon className="h-12 w-12" />
+          <VeloxLogoIcon className="h-9 w-9 sm:h-12 sm:w-12" />
           <div>
-            <span className="font-display text-2xl font-bold tracking-wider text-white">
+            <span className="font-display text-lg sm:text-2xl font-bold tracking-wider text-white">
               VELOX<span className="text-sky-400">.</span>
             </span>
-            <span className="block font-mono text-[9px] tracking-widest text-emerald-400/80">
+            <span className="block font-mono text-[8px] sm:text-[9px] tracking-widest text-emerald-400/80">
               SOFTWARE_HOUSE
             </span>
           </div>
@@ -82,31 +82,31 @@ export default function Navbar({ currentPage, setCurrentPage, toggleChat, isChat
         </nav>
 
         {/* Action Controls */}
-        <div className="flex items-center space-x-3 flex-shrink-0">
+        <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
           {/* AI Assistant Activator & Lead Prompt */}
           <button
             id="nav-cta-chat"
             onClick={toggleChat}
-            className={`btn-cyber flex items-center space-x-2 rounded-lg px-3.5 py-2 text-[10px] tracking-wider uppercase transition-all cursor-pointer ${
+            className={`btn-cyber flex items-center space-x-1 sm:space-x-2 rounded-lg px-2 sm:px-3.5 py-1.5 sm:py-2 text-[9px] sm:text-[10px] tracking-wider uppercase transition-all cursor-pointer ${
               isChatOpen 
                 ? "bg-sky-500 text-black border-sky-400 hover:bg-sky-400" 
                 : "text-sky-400 border-sky-500/40 hover:border-sky-400"
             }`}
           >
-            <MessageSquareCode className="h-4 w-4 flex-shrink-0" />
+            <MessageSquareCode className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
             <span className="font-mono hidden sm:inline">AI CONCIERGE</span>
           </button>
 
           {/* Mobile Menu Toggle (Visible only below md) */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden flex h-10 w-10 items-center justify-center rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-white hover:border-gray-700 transition-all cursor-pointer"
+            className="md:hidden flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-white hover:border-gray-700 transition-all cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-5 w-5 text-sky-400 animate-fadeIn" />
+              <X className="h-4.5 w-4.5 text-sky-400 animate-fadeIn" />
             ) : (
-              <Menu className="h-5 w-5 animate-fadeIn" />
+              <Menu className="h-4.5 w-4.5 animate-fadeIn" />
             )}
           </button>
         </div>

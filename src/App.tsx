@@ -10,7 +10,7 @@ import ContactPage from "./components/ContactPage";
 import AIChatbot from "./components/AIChatbot";
 import { VeloxLogoIcon } from "./components/VeloxLogo";
 import { motion, AnimatePresence } from "motion/react";
-import { Cpu, Mail, Globe, Shield, ArrowUpRight, Github, Linkedin } from "lucide-react";
+import { Cpu, Mail, Globe, Shield, ArrowUpRight, Github, Linkedin, MessageSquareCode } from "lucide-react";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>(Page.LANDING);
@@ -74,11 +74,32 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* Slide-out AI Concierge sidebar */}
-      <AIChatbot 
-        isOpen={isChatOpen}
-        onClose={() => setIsChatOpen(false)}
-      />
+      {/* Floating Messenger-style AI Concierge chat window */}
+      <AnimatePresence>
+        {isChatOpen && (
+          <AIChatbot 
+            isOpen={isChatOpen}
+            onClose={() => setIsChatOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Floating sticky chatbot trigger button */}
+      <AnimatePresence>
+        {!isChatOpen && (
+          <motion.button
+            key="chat-trigger-button"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={toggleChat}
+            className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-cyber-dark/90 backdrop-blur-xl border border-sky-500/40 text-sky-400 flex items-center justify-center shadow-[0_0_15px_rgba(14,165,233,0.35)] hover:shadow-[0_0_25px_rgba(14,165,233,0.6)] cursor-pointer hover:border-sky-400 transition-all animate-float animate-pulse-ring"
+            title="Chat with AI Concierge"
+          >
+            <MessageSquareCode className="h-6 w-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Footer layout */}
       <footer className="border-t border-gray-900 bg-[#020306] pt-16 pb-12 px-6 lg:px-8 relative z-10">

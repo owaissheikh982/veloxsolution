@@ -224,10 +224,14 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
     });
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-y-0 right-0 z-50 w-full sm:w-[460px] bg-cyber-dark border-l border-gray-800 shadow-2xl flex flex-col justify-between">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.92, y: 15 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.92, y: 15 }}
+      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed bottom-4 sm:bottom-24 right-4 left-4 sm:left-auto z-50 w-auto sm:w-[400px] h-[580px] max-h-[calc(100vh-120px)] bg-cyber-dark/80 backdrop-blur-xl border border-gray-800/80 rounded-2xl shadow-2xl flex flex-col justify-between overflow-hidden"
+    >
       
       {/* Header bar */}
       <div className="h-20 border-b border-gray-800 px-6 flex items-center justify-between bg-cyber-dark/90">
@@ -485,6 +489,6 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
         )}
       </div>
 
-    </div>
+    </motion.div>
   );
 }
