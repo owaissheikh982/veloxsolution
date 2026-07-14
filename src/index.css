@@ -15,21 +15,28 @@
 }
 
 /* Base style resets */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #05070c;
   color: #f3f4f6;
   font-family: var(--font-sans);
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
-/* Custom modern scrollbars */
+/* Hide scrollbar on mobile, show slim version on desktop */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -39,6 +46,13 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #374151;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 }
 
 /* High-tech custom utility animations */

@@ -27,7 +27,7 @@ export default function App() {
   }, [currentPage]);
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#05070c] selection:bg-sky-500/30 selection:text-white">
+    <div className="min-h-screen flex flex-col justify-between bg-[#05070c] selection:bg-sky-500/30 selection:text-white overflow-x-hidden max-w-full">
       
       {/* Dynamic Nav Header */}
       <Navbar 
